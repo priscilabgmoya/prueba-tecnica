@@ -3,11 +3,14 @@ import {items} from '../../db/db.json';
 import { Form } from 'react-bootstrap';
 import Input from '../Input/Input';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Forms() {
+    const navigate = useNavigate(); 
+    const [messages , setMessages] = useState(localStorage.getItem("messages") ? JSON.parse(localStorage.getItem("messages") ) : []) 
     const [message, setMessage ] = useState({});
     const handleMessage = (e) => {
-        if(e.target.type == "checkbox")    setMessage({...message , [e.target.name] : e.target.check});
+        if(e.target.type == "checkbox")    setMessage({...message , [e.target.name] : e.target.checked});
         setMessage({...message , [e.target.name] : e.target.value})
     }
     const sentMsg = (e) => {
@@ -18,7 +21,10 @@ function Forms() {
           setValidated(true);
         }else{
             e.preventDefault();
-            console.log(message);
+            messages.push(message);
+            setMessages(messages);
+            localStorage.setItem("messages", JSON.stringify(messages)); 
+            navigate('/list-message'); 
            form.reset();
         }
     }

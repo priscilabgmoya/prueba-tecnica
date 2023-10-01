@@ -1,0 +1,15 @@
+.textMessage{
+    text-decoration: underline;
+
+}
+.conteinerMessage{
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+.colMessage{
+    border: solid 1px black !important;
+    border-radius: 20px;
+    background-color: beige;
+}

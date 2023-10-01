@@ -5,8 +5,7 @@ function Input({types,label,name,required, options , setState}) {
     return(
             types == "select" ?   
             <Form.Group className="mb-3" >
-            <Form.Label> {label}</Form.Label>
-            <Form.Select aria-label={label} name={name} required={required} onChange={setState}>
+            <Form.Select aria-label={label} name={name} required={required}  onChange={setState}>
                 <option value={""} disabled selected >Seleccione una opcion</option>
                 {
                     options?.map((option,index) => {
@@ -18,16 +17,17 @@ function Input({types,label,name,required, options , setState}) {
             : types == "submit"?
             <Button type={types}>{label}</Button>
             : types == "checkbox"?
+            <Form.Group className="mb-3" > 
             <Form.Check 
             type={types}
             label={label}
             name={name}
             required={required}
             onChange={setState}
-          />:
+          />
+          </Form.Group>:
              <Form.Group className="mb-3" >
-            <Form.Label>{label}</Form.Label>
-            <Form.Control type={types} placeholder={types}  name={name} required={required} onChange={setState} />
+            <Form.Control type={types} placeholder={label}  name={name} required={required} onChange={setState} />
           </Form.Group>
     ); 
 }
