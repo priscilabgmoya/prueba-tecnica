@@ -9,6 +9,7 @@ function Forms() {
     const navigate = useNavigate(); 
     const [messages , setMessages] = useState(localStorage.getItem("messages") ? JSON.parse(localStorage.getItem("messages") ) : []) 
     const [message, setMessage ] = useState({});
+    const [validated, setValidated] = useState(false);
     const handleMessage = (e) => {
         if(e.target.type == "checkbox")    setMessage({...message , [e.target.name] : e.target.checked});
         setMessage({...message , [e.target.name] : e.target.value})
@@ -32,7 +33,7 @@ function Forms() {
     return(
         <>
         <h1>Formulario</h1>
-        <Form onSubmit={sentMsg}>
+        <Form noValidate validated={validated}  onSubmit={sentMsg}>
             {
               items?.map((item, index) => {
                 return <Input key={index}

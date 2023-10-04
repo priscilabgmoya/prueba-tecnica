@@ -13,6 +13,9 @@ function Input({types,label,name,required, options , setState}) {
                     })
                 }
             </Form.Select>
+            <Form.Control.Feedback type="invalid">
+             Por favor Seleccione una Opcion!.
+            </Form.Control.Feedback>
           </Form.Group>
             : types == "submit"?
             <Button type={types}>{label}</Button>
@@ -24,10 +27,15 @@ function Input({types,label,name,required, options , setState}) {
             name={name}
             required={required}
             onChange={setState}
+            feedback="Debes aceptar antes de enviar."
+            feedbackType="invalid"
           />
           </Form.Group>:
              <Form.Group className="mb-3" >
             <Form.Control type={types} placeholder={label}  name={name} required={required} onChange={setState} />
+            <Form.Control.Feedback type="invalid">
+             {`Por favor, Ingrese ${label}`}
+            </Form.Control.Feedback>
           </Form.Group>
     ); 
 }
