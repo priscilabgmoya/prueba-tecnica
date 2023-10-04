@@ -1,0 +1,12 @@
+form {
+    background-color:beige;
+    padding: 10px;
+    display:flex;
+    flex-direction: column;
+}
+
+button{
+    background-color: green !important;
+    border: solid 1px green !important;
+    border-radius: 20px !important;
+}

@@ -1,0 +1,6 @@
+input, select{
+    background-color: rgba(169, 221, 157, 0.549) !important;
+}
+input:checked {
+    background-color: rgba(0, 0, 0, 0.607) !important;
+}

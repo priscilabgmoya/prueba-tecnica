@@ -24,6 +24,7 @@ function Forms() {
             messages.push(message);
             setMessages(messages);
             localStorage.setItem("messages", JSON.stringify(messages)); 
+            alert("Mensaje Guardado...."); 
             navigate('/list-message'); 
            form.reset();
         }
